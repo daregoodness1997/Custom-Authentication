@@ -2,6 +2,15 @@ import { Request, Response } from 'express';
 import UserModel from '../models/user.model';
 import AuthService from '../services/auth.service';
 
+// Extend Express Request interface to include 'user'
+declare global {
+  namespace Express {
+    interface Request {
+      user?: any;
+    }
+  }
+}
+
 interface UserResponse {
   id: string;
   email: string;
